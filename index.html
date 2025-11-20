@@ -6,7 +6,7 @@
   <title>Corações Interativos</title>
 
   <style>
-    /* ======== FUNDO AJUSTADO ======== */
+    /* ======== FUNDO ======== */
     body {
       margin: 0;
       padding: 0;
@@ -26,12 +26,12 @@
       font-family: sans-serif;
     }
 
-    /* Ajuste para celular (não cortar imagem) */
+    /* Ajuste para celular */
     @media (max-width: 768px) {
       body {
-        background-size: contain;       /* mostra a imagem inteira */
+        background-size: contain;
         background-position: center top;
-        background-attachment: scroll;  /* evita bug no celular */
+        background-attachment: scroll;
       }
     }
 
@@ -41,9 +41,19 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 2000px; /* ajuste se quiser */
+      width: 1800px; /* tamanho padrão */
       z-index: 10;
       pointer-events: none;
+      transition: 0.3s ease;
+    }
+
+    /* Personagem ajustado no celular */
+    @media (max-width: 768px) {
+      .imagem-fixa {
+        width: 90vw;    /* ocupa 90% da largura do celular */
+        max-width: 700px;
+        top: 58%;       /* ajusta posição */
+      }
     }
 
     /* ======== CORAÇÕES ======== */
@@ -54,6 +64,13 @@
       background: url("heart.png") no-repeat center/contain;
       animation: float 3s ease-in-out forwards;
       pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .heart {
+        width: 30px; /* corações menores no celular */
+        height: 30px;
+      }
     }
 
     @keyframes float {
