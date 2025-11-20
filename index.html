@@ -4,20 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Corações Interativos</title>
+
   <style>
+    /* ======== FUNDO AJUSTADO ======== */
     body {
       margin: 0;
       padding: 0;
       height: 100vh;
-      body {
       background-image: url("fundo.jpg");
-      background-repeat: no-repeat;     
-      background-size: cover;           
-      background-position: center;      
-      background-attachment: fixed;     
-     }
-
+      background-repeat: no-repeat;
       background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+
       overflow: hidden;
       cursor: pointer;
       position: relative;
@@ -27,17 +26,27 @@
       font-family: sans-serif;
     }
 
-    /* Imagem central fixa */
+    /* Ajuste para celular (não cortar imagem) */
+    @media (max-width: 768px) {
+      body {
+        background-size: contain;       /* mostra a imagem inteira */
+        background-position: center top;
+        background-attachment: scroll;  /* evita bug no celular */
+      }
+    }
+
+    /* ======== IMAGEM CENTRAL ======== */
     .imagem-fixa {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 2000px; /* ajuste o tamanho */
-      z-index: 10; /* fica acima dos corações */
-      pointer-events: none; /* não interfere nos cliques */
+      width: 2000px; /* ajuste se quiser */
+      z-index: 10;
+      pointer-events: none;
     }
 
+    /* ======== CORAÇÕES ======== */
     .heart {
       width: 40px;
       height: 40px;
@@ -63,9 +72,10 @@
     }
   </style>
 </head>
+
 <body>
 
-  <!-- 🌟 Imagem central fixa -->
+  <!-- Imagem central fixa -->
   <img src="personagem.png" alt="Imagem central" class="imagem-fixa">
 
   <script>
